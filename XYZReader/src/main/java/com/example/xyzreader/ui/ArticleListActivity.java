@@ -156,6 +156,7 @@ public class ArticleListActivity extends AppCompatActivity implements
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         //String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
                         //imageView.setTransitionName(transitionPhotoName);
+                        Log.i("click: ",imageView.getTransitionName());
                         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, imageView.getTransitionName());
                         startActivity(intent, options.toBundle());
                     }else {
@@ -213,6 +214,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
 
             String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(position)).trim();
+            //Log.i("transition name from thumbnail: ",transitionPhotoName);
             holder.thumbnailView.setTransitionName(transitionPhotoName);
         }
 

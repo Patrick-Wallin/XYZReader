@@ -99,11 +99,7 @@ public class ArticleDetailFragment extends Fragment implements
                 R.dimen.detail_card_top_margin);
         setHasOptionsMenu(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityCompat.postponeEnterTransition(getActivity());
 
-            setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(android.R.transition.move));
-        }
 
 
 
@@ -169,6 +165,7 @@ public class ArticleDetailFragment extends Fragment implements
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(mItemId).trim();
+            Log.i("name:",transitionPhotoName);
             mPhotoView.setTransitionName(transitionPhotoName);
         }
 
@@ -281,8 +278,10 @@ public class ArticleDetailFragment extends Fragment implements
                                         .setBackgroundColor(mMutedColor);
                                 updateStatusBar();
 
+                                Log.i("After loading photo: ",mPhotoView.getTransitionName());
                                 Log.i("Test","getImageLoader");
                                 scheduleStartPostponedTransition(mPhotoView);
+                                
 
                             }
                         }
