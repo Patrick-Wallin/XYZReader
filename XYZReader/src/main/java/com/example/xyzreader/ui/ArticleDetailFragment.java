@@ -16,7 +16,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -26,6 +28,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -94,7 +97,25 @@ public class ArticleDetailFragment extends Fragment implements
         mStatusBarFullOpacityBottom = getResources().getDimensionPixelSize(
                 R.dimen.detail_card_top_margin);
         setHasOptionsMenu(true);
+
+        ActivityCompat.postponeEnterTransition(getActivity());
+
+
     }
+
+    private void scheduleStartPostponedTransition(final View sharedElement) {
+        sharedElement.getViewTreeObserver().addOnPreDrawListener(
+                new ViewTreeObserver.OnPreDrawListener() {
+                    @Override
+                    public boolean onPreDraw() {
+                        sharedElement.getViewTreeObserver().removeOnPreDrawListener(this);
+                        ActivityCompat.startPostponedEnterTransition(getActivity());
+                        return true;
+                    }
+                });
+    }
+
+
 
     public ArticleDetailActivity getActivityCast() {
         return (ArticleDetailActivity) getActivity();
@@ -137,6 +158,12 @@ public class ArticleDetailFragment extends Fragment implements
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(mItemId).trim();
+            mPhotoView.setTransitionName(transitionPhotoName);
+        }
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -233,6 +260,7 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
@@ -245,6 +273,10 @@ public class ArticleDetailFragment extends Fragment implements
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
                                 updateStatusBar();
+
+                                Log.i("Test","getImageLoader");
+                                scheduleStartPostponedTransition(mPhotoView);
+
                             }
                         }
 

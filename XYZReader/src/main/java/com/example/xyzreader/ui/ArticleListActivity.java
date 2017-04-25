@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -151,8 +153,14 @@ public class ArticleListActivity extends AppCompatActivity implements
                 public void onClick(View view) {
                     View imageView = (View)findViewById(R.id.thumbnail);
                     Intent intent = new Intent(Intent.ACTION_VIEW,ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,imageView,getString(R.string.transition_photo));
-                    startActivity(intent,options.toBundle());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
+                        imageView.setTransitionName(transitionPhotoName);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, getString(R.string.transition_photo));
+                        startActivity(intent, options.toBundle());
+                    }else {
+                        startActivity(intent);
+                    }
 /*
                     Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this,
                             Intent.ACTION_VIEW,
