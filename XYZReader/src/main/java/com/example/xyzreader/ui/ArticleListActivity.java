@@ -154,9 +154,9 @@ public class ArticleListActivity extends AppCompatActivity implements
                     View imageView = (View)findViewById(R.id.thumbnail);
                     Intent intent = new Intent(Intent.ACTION_VIEW,ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
-                        imageView.setTransitionName(transitionPhotoName);
-                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, getString(R.string.transition_photo));
+                        //String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
+                        //imageView.setTransitionName(transitionPhotoName);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, imageView.getTransitionName());
                         startActivity(intent, options.toBundle());
                     }else {
                         startActivity(intent);
@@ -211,6 +211,9 @@ public class ArticleListActivity extends AppCompatActivity implements
                     mCursor.getString(ArticleLoader.Query.THUMB_URL),
                     ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
+            String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(position)).trim();
+            holder.thumbnailView.setTransitionName(transitionPhotoName);
         }
 
         @Override
