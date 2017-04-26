@@ -94,6 +94,12 @@ public class ArticleListActivity extends AppCompatActivity implements
         unregisterReceiver(mRefreshingReceiver);
     }
 
+    @Override
+    public void onActivityReenter(int resultCode, Intent data) {
+        super.onActivityReenter(resultCode, data);
+        Log.i("reeneter","reenter");
+    }
+
     private boolean mIsRefreshing = false;
 
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
@@ -151,7 +157,8 @@ public class ArticleListActivity extends AppCompatActivity implements
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    View imageView = (View)findViewById(R.id.thumbnail);
+                    //View imageView = (View)findViewById(R.id.thumbnail);
+                    View imageView = vh.thumbnailView;
                     Intent intent = new Intent(Intent.ACTION_VIEW,ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         //String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
@@ -191,6 +198,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             mCursor.moveToPosition(position);
+
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
@@ -213,7 +221,10 @@ public class ArticleListActivity extends AppCompatActivity implements
                     ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
 
-            String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(position)).trim();
+
+            //String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(position)).trim();
+            String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(mCursor.getLong(ArticleLoader.Query._ID)).trim();
+            //mCursor.getLong(ArticleLoader.Query._ID)
             //Log.i("transition name from thumbnail: ",transitionPhotoName);
             holder.thumbnailView.setTransitionName(transitionPhotoName);
         }

@@ -263,7 +263,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 + "</font>"));
 
             }
-            //bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
 
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
@@ -281,7 +281,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 Log.i("After loading photo: ",mPhotoView.getTransitionName());
                                 Log.i("Test","getImageLoader");
                                 scheduleStartPostponedTransition(mPhotoView);
-                                
+
 
                             }
                         }

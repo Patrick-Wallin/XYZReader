@@ -28,8 +28,8 @@
         <item name="android:windowContentTransitions">true</item>
 
 
-        <item name="android:windowExitTransition">@transition/thumbnail_exit</item>
-        <item name="android:windowEnterTransition">@transition/thumbnail_exit</item>
+        <item name="android:windowExitTransition">@transition/fade_no_flash</item>
+        <item name="android:windowEnterTransition">@transition/fade_no_flash</item>
 
 
         <item name="android:windowSharedElementEnterTransition">@transition/thumbnail_exit</item>
