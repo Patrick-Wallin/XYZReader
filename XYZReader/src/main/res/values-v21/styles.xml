@@ -21,15 +21,18 @@
 
     </style>
 
-    <style name="Theme.Green" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Green" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/theme_primary</item>
         <item name="colorPrimaryDark">@color/theme_primary_dark</item>
         <item name="colorAccent">@color/theme_accent</item>
+
         <item name="android:windowContentTransitions">true</item>
 
 
-        <item name="android:windowExitTransition">@transition/fade_no_flash</item>
-        <item name="android:windowEnterTransition">@transition/fade_no_flash</item>
+        <item name="android:windowExitTransition">@transition/thumbnail_exit</item>
+        <item name="android:windowEnterTransition">@transition/thumbnail_exit</item>
+
+
 
 
         <item name="android:windowSharedElementEnterTransition">@transition/thumbnail_exit</item>
@@ -41,6 +44,39 @@
 
     <style name="Theme.Bacon.Detail">
         <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+
+        <item name="android:windowContentTransitions">true</item>
+
+
+        <item name="android:windowExitTransition">@transition/thumbnail_exit</item>
+        <item name="android:windowEnterTransition">@transition/thumbnail_exit</item>
+
+
+
+
+        <item name="android:windowSharedElementEnterTransition">@transition/thumbnail_exit</item>
+        <item name="android:windowSharedElementExitTransition">@transition/thumbnail_exit</item>
+
+    </style>
+
+    <style name="AppThemeForDetails" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+    </style>
+
+    <style name="Theme.Green.Main" parent="@style/AppTheme">
+
+    </style>
+
+    <style name="Theme.Green.Detail" parent="@style/AppThemeForDetails">
+
     </style>
 
 </resources>

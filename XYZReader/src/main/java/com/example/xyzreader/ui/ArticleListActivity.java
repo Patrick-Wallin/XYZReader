@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.example.xyzreader.R;
@@ -33,8 +35,10 @@ import com.example.xyzreader.data.UpdaterService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
@@ -61,8 +65,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
+        mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
         final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
@@ -163,8 +166,21 @@ public class ArticleListActivity extends AppCompatActivity implements
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         //String transitionPhotoName = getString(R.string.transition_photo).trim() + String.valueOf(getItemId(vh.getAdapterPosition())).trim();
                         //imageView.setTransitionName(transitionPhotoName);
-                        Log.i("click: ",imageView.getTransitionName());
-                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, imageView.getTransitionName());
+
+                        View statusBar = findViewById(android.R.id.statusBarBackground);
+                        View navigationBar = findViewById(android.R.id.navigationBarBackground);
+
+                        List<Pair<View, String>> pairs = new ArrayList<>();
+                        pairs.add(Pair.create(statusBar, Window.STATUS_BAR_BACKGROUND_TRANSITION_NAME));
+                        pairs.add(Pair.create(navigationBar, Window.NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME));
+                        pairs.add(Pair.create(imageView, imageView.getTransitionName()));
+
+                        //Bundle options = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,
+                           //     pairs.toArray(new Pair[pairs.size()])).toBundle();
+
+                        //Log.i("click: ",imageView.getTransitionName());
+                        //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, imageView, imageView.getTransitionName());
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this, pairs.toArray(new Pair[pairs.size()]));
                         startActivity(intent, options.toBundle());
                     }else {
                         startActivity(intent);
