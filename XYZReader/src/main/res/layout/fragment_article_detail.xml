@@ -25,6 +25,10 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
@@ -37,8 +41,7 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/detail_toolbar"
                     android:layout_width="match_parent"
-
-                    android:layout_height="?attr/actionBarSize"
+                    android:layout_height="wrap_content"
                     app:layout_collapseMode="pin"
                     android:contentInsetStart="0dp"
                     android:contentInsetLeft="0dp"
@@ -46,7 +49,44 @@
                     app:contentInsetStart="0dp"
                     android:minHeight="0dp"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <LinearLayout
+                        android:id="@+id/meta_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#333"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                        android:paddingRight="@dimen/detail_inner_horiz_margin"
+                        android:paddingTop="@dimen/detail_metabar_vert_padding"
+                        android:paddingBottom="@dimen/detail_metabar_vert_padding"
+                        android:layout_marginBottom="@dimen/detail_metabar_vert_padding">
+
+
+                        <TextView
+                            android:id="@+id/article_title"
+                            style="?android:attr/textAppearanceLarge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/detail_title_text_size"
+                            android:lineSpacingMultiplier="0.9" />
+
+                        <TextView
+                            android:id="@+id/article_byline"
+                            style="?android:attr/textAppearanceSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#8fff" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.Toolbar>
+        </LinearLayout>
 <!--
             </LinearLayout>
             -->
@@ -82,7 +122,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+                <!--
                 <LinearLayout
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
@@ -116,6 +157,7 @@
                                         android:layout_height="wrap_content"
                                         android:textColor="#8fff" />
                                 </LinearLayout>
+                                -->
 
 
                 <TextView
