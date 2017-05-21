@@ -127,7 +127,7 @@ public class DrawInsetsFrameLayout extends FrameLayout {
             mTempRect.set(0, 0, width, mInsets.top);
             if (mInsetBackground != null) {
                 mInsetBackground.setBounds(mTempRect);
-                mInsetBackground.draw(canvas);
+               mInsetBackground.draw(canvas);
             }
 
             // Bottom

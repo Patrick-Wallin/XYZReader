@@ -1,3 +1,11 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/draw_insets_frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--
 <com.example.xyzreader.ui.DrawInsetsFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -5,6 +13,7 @@
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    -->
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -48,7 +57,8 @@
 
 
 
-    <com.example.xyzreader.ui.ObservableScrollView
+     <!-- <com.example.xyzreader.ui.ObservableScrollView -->
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!--
             <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -67,7 +78,11 @@
                 android:background="#fff"
                 android:elevation="2dp"
                 android:layout_marginTop="@dimen/detail_card_top_margin">
-
+            -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
@@ -80,6 +95,7 @@
                     android:paddingTop="@dimen/detail_metabar_vert_padding"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding"
                     android:layout_marginBottom="@dimen/detail_metabar_vert_padding">
+
 
                                     <TextView
                                         android:id="@+id/article_title"
@@ -115,10 +131,15 @@
                     android:textSize="@dimen/detail_body_text_size"
                     android:maxLines="25"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
-
+            </LinearLayout>
+            <!--
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
+            -->
         </FrameLayout>
+        <!--
     </com.example.xyzreader.ui.ObservableScrollView>
+    -->
+    </android.support.v4.widget.NestedScrollView>
 
 
 <!--
@@ -138,5 +159,7 @@
         android:src="@drawable/ic_share"
         android:elevation="@dimen/fab_elevation"
         android:contentDescription="@string/action_share" />
-
+<!--
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>
+-->
+    </android.support.design.widget.CoordinatorLayout>
