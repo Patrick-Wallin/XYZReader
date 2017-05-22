@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -101,10 +102,6 @@ public class ArticleDetailFragment extends Fragment implements
         setHasOptionsMenu(true);
 
 
-
-
-
-
     }
 
     private void scheduleStartPostponedTransition(final View sharedElement) {
@@ -140,6 +137,12 @@ public class ArticleDetailFragment extends Fragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
+
+
+
+
+
+
 
         /*
         mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)

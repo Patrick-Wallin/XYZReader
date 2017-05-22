@@ -65,6 +65,8 @@ public class ArticleDetailActivity extends AppCompatActivity
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
         mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
 
+
+
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -83,38 +85,6 @@ public class ArticleDetailActivity extends AppCompatActivity
                 updateUpButtonPosition();
             }
         });
-
-        /*
-        ActionBar actionBar = this.getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-        */
-//getSupportActionBar().setHomeButtonEnabled(true);
-       // getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        /*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        setSupportActionBar(toolbar);
-        */
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // do not need this!
-        //mUpButtonContainer = findViewById(R.id.up_container);
-
-        // do not need this!
-    /*
-        mUpButton = findViewById(R.id.action_up);
-        mUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //onSupportNavigateUp();
-                onBackPressed();
-
-            }
-        });
-*/
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
