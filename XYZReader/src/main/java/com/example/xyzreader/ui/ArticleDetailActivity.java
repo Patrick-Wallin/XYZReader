@@ -84,9 +84,22 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         });
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /*
+        ActionBar actionBar = this.getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        */
+//getSupportActionBar().setHomeButtonEnabled(true);
+       // getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        /*
+        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        setSupportActionBar(toolbar);
+        */
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         // do not need this!
         //mUpButtonContainer = findViewById(R.id.up_container);
 

@@ -1,87 +1,13 @@
-<!--
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <FrameLayout
-        android:id="@+id/up_container"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-
-        <ImageButton
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:id="@+id/action_up"
-            android:layout_width="56dp"
-            android:layout_height="?actionBarSize"
-            android:background="?selectableItemBackgroundBorderless"
-            android:contentDescription="@string/up"
-            android:src="@drawable/ic_arrow_back" />
-    </FrameLayout>
-</FrameLayout>
--->
-
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/toolbar_container_details"
-        android:background="?colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/detail_toolbar"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:layout_marginLeft="@dimen/list_toolbar_side_margin"
-            android:layout_marginRight="@dimen/list_toolbar_side_margin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
-            </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-    -->
-<!--
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:elevation="4dp"
-        android:background="?attr/colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-        -->
-
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-<!--
-    <FrameLayout
-        android:id="@+id/up_container"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-
-        <ImageButton
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:id="@+id/action_up"
-            android:layout_width="56dp"
-            android:layout_height="?actionBarSize"
-            android:background="?selectableItemBackgroundBorderless"
-            android:contentDescription="@string/up"
-            android:src="@drawable/ic_arrow_back" />
-    </FrameLayout>
-
-    -->
 
 </android.support.design.widget.CoordinatorLayout>

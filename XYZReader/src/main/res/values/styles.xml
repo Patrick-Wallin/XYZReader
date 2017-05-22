@@ -33,6 +33,12 @@
         <item name="colorAccent">@color/theme_accent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+    <style name="DetailAppTheme" parent="AppTheme.NoActionBar" />
     <style name="Theme.Green.Main" parent="@style/AppTheme">
 
     </style>
@@ -46,4 +52,76 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="DetailTitle">
+        <item name="android:textColor">@color/detail_view_title</item>
+        <item name="android:textSize">@dimen/detail_title_text_size</item>
+        <item name="android:lineSpacingMultiplier">0.9</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+    <style name="DetailSubtitle">
+        <item name="android:textColor">@color/detail_view_subtitle</item>
+        <item name="android:lineSpacingMultiplier">0.9</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="BodyArticle">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginStart">@dimen/detail_body_top_margin</item>
+        <item name="android:layout_marginTop">@dimen/detail_body_top_margin</item>
+        <item name="android:layout_marginLeft">@dimen/detail_inner_horiz_margin</item>
+        <item name="android:layout_marginRight">@dimen/detail_inner_horiz_margin</item>
+        <item name="android:paddingBottom">@dimen/detail_body_bottom_margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorLink">@color/theme_accent</item>
+        <item name="android:textSize">@dimen/detail_body_text_size</item>
+        <item name="android:maxLines">25</item>
+        <item name="android:lineSpacingMultiplier">@fraction/detail_body_line_spacing_multiplier</item>
+    </style>
+
+    <style name="ShareFloatingButton">
+        <item name="android:stateListAnimator">@anim/fab_state_list_anim</item>
+        <item name="android:background">@drawable/add_fab_background</item>
+        <item name="android:layout_marginRight">@dimen/fab_margin</item>
+        <item name="android:layout_marginBottom">@dimen/fab_margin</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:src">@drawable/ic_share</item>
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="android:contentDescription">@string/action_share</item>
+    </style>
+
+    <style name="card_article_title">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/card_view_title</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">4</item>
+    </style>
+
+    <style name="card_article_subtitle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/card_view_subtitle</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="card_view">
+        <item name="android:elevation">2dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
 </resources>

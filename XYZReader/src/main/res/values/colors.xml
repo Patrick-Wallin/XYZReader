@@ -27,4 +27,9 @@
 
     <color name="card_view_title">@android:color/white</color>
     <color name="card_view_subtitle">@android:color/white</color>
+
+    <color name="detail_view_title">@android:color/white</color>
+    <color name="detail_view_subtitle">#8fff</color>
+
+    <color name="background_on_title_and_subtitle">#333</color>
 </resources>

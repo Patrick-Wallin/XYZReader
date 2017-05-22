@@ -272,11 +272,8 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
 
-            //String s = mCursor.getString(ArticleLoader.Query.BODY);
-            //Log.d("result: ", s);
-            //bodyView.setText(s);
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
-            //bodyView.setText("testtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
+
 
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
