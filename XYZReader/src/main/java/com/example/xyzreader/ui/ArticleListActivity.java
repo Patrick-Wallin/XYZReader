@@ -78,7 +78,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             refresh();
         }
 
-        }
+    }
 
     private void refresh() {
         startService(new Intent(this, UpdaterService.class));
@@ -100,7 +100,6 @@ public class ArticleListActivity extends AppCompatActivity implements
     @Override
     public void onActivityReenter(int resultCode, Intent data) {
         super.onActivityReenter(resultCode, data);
-        Log.i("reeneter","reenter");
     }
 
     private boolean mIsRefreshing = false;
