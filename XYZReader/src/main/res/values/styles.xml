@@ -82,7 +82,6 @@
 
     <style name="ShareFloatingButton">
         <item name="android:stateListAnimator">@anim/fab_state_list_anim</item>
-        <item name="android:background">@drawable/add_fab_background</item>
         <item name="android:layout_marginRight">@dimen/fab_margin</item>
         <item name="android:layout_marginBottom">@dimen/fab_margin</item>
         <item name="android:layout_width">56dp</item>

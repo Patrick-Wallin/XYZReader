@@ -9,7 +9,6 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar_container"
-        android:background="?colorPrimary"
         android:layout_width="match_parent"
         android:elevation="@dimen/appbar_elevation"
         android:layout_height="wrap_content">

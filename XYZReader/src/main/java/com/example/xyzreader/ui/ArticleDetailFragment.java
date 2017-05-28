@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -288,8 +289,17 @@ public class ArticleDetailFragment extends Fragment implements
                         public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
-                                Palette p = Palette.generate(bitmap, 12);
-                                mMutedColor = p.getDarkMutedColor(0xFF333333);
+                                // The reviewer recommended using this method to get closest color based on Dark Muted Color and bitmap.
+                                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                                    @Override
+                                    public void onGenerated(Palette palette) {
+                                        mMutedColor = palette.getDarkMutedColor(0xFF333333);
+                                    }
+                                });
+
+
+                                //Palette p = Palette.generate(bitmap, 12);
+                                //mMutedColor = p.getDarkMutedColor(0xFF333333);
 
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
 
