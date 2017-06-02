@@ -19,3 +19,7 @@ This project is part of Android Developer Nanodegree's program at Udacity.  It i
 “The color scheme is really sad and I shouldn't feel sad.”
 
 ## Screenshots
+
+![Screenshot](https://github.com/Patrick-Wallin/XYZReader/tree/master/screenshots/XYZReader-Screenshot-1.PNG)
+![Screenshot](https://github.com/Patrick-Wallin/XYZReader/tree/master/screenshots/XYZReader-Screenshot-2.PNG)
+![Screenshot](https://github.com/Patrick-Wallin/XYZReader/tree/master/screenshots/XYZReader-Screenshot-3.PNG)
