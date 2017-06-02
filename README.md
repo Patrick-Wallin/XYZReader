@@ -22,4 +22,4 @@ This project is part of Android Developer Nanodegree's program at Udacity.  It i
 
 ![Screenshot](../master/screenshots/XYZReader-Screenshot-1.PNG)
 ![Screenshot](../master/screenshots/XYZReader-Screenshot-2.PNG)
-![Screenshot](../screenshots/XYZReader-Screenshot-3.PNG)
+![Screenshot](../master/screenshots/XYZReader-Screenshot-3.PNG)
